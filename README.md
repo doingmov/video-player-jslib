@@ -9,7 +9,7 @@
 
 Построен на базе библиотеки [Playable](https://wix.github.io/playable/).
 
-Ссылка на [демо-проекта]()
+Ссылка на [демо-проекта](https://doingmov.github.io/video-player-jslib/)
 ## Примеры
 
 Два рабочих примера:

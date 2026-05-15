@@ -132,6 +132,14 @@ body {
     transform: translateY(0);
 
     top: 0;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+}
+
+.controls:hover .dot {
+    opacity: 1;
 }
 </style>
 </head>

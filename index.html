@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 
     <link rel="icon" href="favicon.ico">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -41,8 +42,8 @@ body {
 
     height: 44px;
 
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .player-button {
@@ -59,12 +60,14 @@ body {
 
 .player-icon {
     color: white;
-
     font-size: 17px;
 }
 
 .spacer {
     flex-grow: 1;
+
+    display: flex;
+    align-items: center;
 }
 
 .js-mute-button {
@@ -77,8 +80,9 @@ body {
 
 .js-fullscreen-button .player-icon {
     font-size: 18px;
+
     position: relative;
-    top: 0px;
+    top: 0;
 }
 
 .playback-time {
@@ -89,15 +93,23 @@ body {
     font-size: 16px;
 }
 
+.js-current-time {
+    margin-left: 3px;
+}
+
 .js-progress {
     position: relative;
-    flex-grow: 596;
+
+    flex-grow: 1;
+
     height: 5px;
+
     background: black;
 
     border-radius: 2px;
 
     margin: 0 9px;
+
     display: flex;
     align-items: center;
 }
@@ -111,15 +123,12 @@ body {
     border-radius: 10px;
 }
 
-.js-current-time {
-    margin-left: 3px;
-}
-
 .dot {
     height: 13px;
     width: 13px;
 
     background-color: red;
+
     border-radius: 50%;
     border: 3px solid #ffffff;
 
@@ -132,7 +141,9 @@ body {
     transform: translateY(0);
 
     top: 0;
+
     opacity: 0;
+
     transition-property: opacity;
     transition-duration: 300ms;
     transition-timing-function: ease-in-out;
@@ -143,48 +154,60 @@ body {
 }
 </style>
 </head>
+
 <body>
 
 <div id="player" class="player-container">
+
     <div class="js-video-container video-container"></div>
 
-<div class="controls">
-    <button class="js-play-button player-button">
-        <i class="fas fa-play player-icon"></i>
-    </button>
+    <div class="controls">
 
-    <button class="js-pause-button player-button" hidden>
-        <i class="fas fa-pause player-icon"></i>
-    </button>
+        <button class="js-play-button player-button">
+            <i class="fas fa-play player-icon"></i>
+        </button>
 
-    <button class="js-volume-button player-button" hidden>
-        <i class="fas fa-volume-off player-icon"></i>
-    </button>
+        <button class="js-pause-button player-button" hidden>
+            <i class="fas fa-pause player-icon"></i>
+        </button>
 
-    <button class="js-mute-button player-button">
-        <i class="fas fa-volume-up player-icon"></i>
-    </button>
+        <button class="js-volume-button player-button" hidden>
+            <i class="fas fa-volume-off player-icon"></i>
+        </button>
 
-    <div class="playback-time js-current-time">0:00</div>
+        <button class="js-mute-button player-button">
+            <i class="fas fa-volume-up player-icon"></i>
+        </button>
 
-    <div class="js-progress">
-        <div class="js-progress-slider"></div>
-        <span class="dot"></span>
+        <div class="spacer">
+
+            <div class="playback-time js-current-time">
+                0:00
+            </div>
+
+            <div class="js-progress">
+                <div class="js-progress-slider"></div>
+                <span class="dot"></span>
+            </div>
+
+            <div class="playback-time js-duration">
+                0:00
+            </div>
+
+        </div>
+
+        <button class="js-fullscreen-button player-button">
+            <i class="fas fa-expand-alt player-icon"></i>
+        </button>
+
     </div>
 
-    <div class="playback-time js-duration">0:00</div>
-
-    <div class="spacer"></div>
-
-    <button class="js-fullscreen-button player-button">
-        <i class="fas fa-expand-alt player-icon"></i>
-    </button>
-
-</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 <script src="https://unpkg.com/playable@2.10.3/dist/statics/playable.bundle.min.js"></script>
+
 <script src="player.js"></script>
 
 <script>
